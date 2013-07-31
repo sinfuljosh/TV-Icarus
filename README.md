@@ -1,6 +1,6 @@
 ## TVicarus
-Script Coded by TuxLyn
+Coded by TuxLyn < [GoTux.net] (http://gotux.net/) >
 
-See demo website at [TVicarus.com] (http://tvicarus.com/)
+See script demo at [TVicarus.com] (http://tvicarus.com/)
 
-Read [TVicarus Wiki] (https://github.com/GoTux/TV-Icarus/wiki) for more detailed information.
+Read [TVicarus Wiki] (https://github.com/GoTux/TV-Icarus/wiki) for more information.
