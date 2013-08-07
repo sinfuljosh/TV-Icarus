@@ -2,12 +2,13 @@
 
 class Tvic extends CI_Model {
 
-	function pre($array) {
-		return '<pre>'.print_r($array,1).'</pre>';
-	} #pre
+	function mode() {
+		return ($_SERVER['REMOTE_ADDR'] == '127.0.0.1') ? TRUE : FALSE;
+	} #mode
 
 
 	function page($page, $data = NULL) {
+		$data['mode'] = $this->mode();
 		$data['base'] = base_url();
 		$data['current'] = current_url();
 		$data['title'] = $this->config->item('title');
@@ -50,12 +51,12 @@ class Tvic extends CI_Model {
 		$shows = 'http://services.tvrage.com/feeds/show_list_letter.php?letter=';
 		$dir = $this->config->item('cachedir');
 		$this->cache("{$dir}news.xml", 43200, $news);
-		$this->cache("{$dir}countdown.xml", 86400, $guide);
+		$this->cache("{$dir}guide.xml", 86400, $guide);
 		foreach (range('a', 'z') as $alphabet) {
-			$this->cache("{$dir}showlists/{$alphabet}-showlist.xml", 604800, "{$shows}{$alphabet}-showlist.xml");
+			$this->cache("{$dir}lists/{$alphabet}-showlist.xml", 604800, "{$shows}{$alphabet}-showlist.xml");
 		} #alphabet
 		foreach (range('0', '9') as $number) {
-			$this->cache("{$dir}showlists/{$number}-showlist.xml", 604800, "{$shows}{$number}-showlist.xml");
+			$this->cache("{$dir}lists/{$number}-showlist.xml", 604800, "{$shows}{$number}-showlist.xml");
 		} #numbers
 	} #pre_cache
 
@@ -86,7 +87,7 @@ class Tvic extends CI_Model {
 		$feed = 'http://www.tvrage.com/news/rss.php';
 		$dir = $this->config->item('cachedir');
 		$file = "{$dir}news.xml";
-		$xml = $this->cache($file, 43200, $feed);
+		$xml = $this->cache($file, 3600, $feed);
 		return $xml;
 	} #news
 
@@ -94,7 +95,7 @@ class Tvic extends CI_Model {
 	function guide() {
 		$feed = 'http://services.tvrage.com/feeds/countdown.php';
 		$dir = $this->config->item('cachedir');
-		$file = "{$dir}countdown.xml";
+		$file = "{$dir}guide.xml";
 		$xml = $this->cache($file, 86400, $feed);
 		return $xml;
 	} #guide
@@ -104,20 +105,20 @@ class Tvic extends CI_Model {
 		$feed = 'http://services.tvrage.com/feeds/show_list_letter.php?letter=';
 		$dir = $this->config->item('cachedir');
 		$uri = (!$this->uri->segment(2)) ? 'a' : $this->uri->segment(2);
-		$file = "{$dir}showlists/{$uri}-showlist.xml";
+		$file = "{$dir}lists/{$uri}-showlist.xml";
 		$xml = $this->cache($file, 604800, "{$feed}{$uri}-showlist.xml");
 		return $xml;
 	} #shows
 
 
-	function episode() {
+	function title() {
 		$feed = 'http://services.tvrage.com/feeds/full_show_info.php?sid=';
 		$dir = $this->config->item('cachedir');
 		$uri = $this->uri->segment(2);
-		$file = "{$dir}episodes/{$uri}-eplist.xml";
+		$file = "{$dir}titles/{$uri}-eplist.xml";
 		$xml = $this->cache($file, 604800, "{$feed}{$uri}-eplist.xml");
 		return $xml;
-	} #episode
+	} #title
 
 
 	function search($str) {

@@ -1,16 +1,18 @@
 <div id="content">
-  <h3> Shows List </h3>
-  <div id="categories">
-    {foreach from=$alphabet item=cat} {$cat} {/foreach}
-    {foreach from=$numbers item=cat} {$cat} {/foreach}
-  </div> <!--#categories-->
+  <div id="head">
+    <div id="categories">
+      {foreach from=$alphabet item=cat} {$cat} {/foreach}
+      {foreach from=$numbers item=cat} {$cat} {/foreach}
+    </div> <!--#categories-->
+    <h1 class="right"> SHOWS </h1>
+  </div> <!--#head-->
   <table id="shows">
     <th class="show"> Show </th>
     <th> Country </th>
     <th class="status"> Status </th>
     {foreach from=$shows item=show}
     <tr>
-      <td class="show"> <a href="{$base}episode/{$show->id}">{$show->name}</a> </td>
+      <td class="show"> <a href="{$base}title/{$show->id}">{$show->name}</a> </td>
       <td class="country"> <img src="{$base}static/images/flags/{$show->country}.gif" alt="({$show->country})"> {$show->country} </td>
       <td class="status">
       {switch $show->status}
@@ -30,10 +32,10 @@
     </tr>
     {/foreach}
   </table> <!--shows-->
-  <div id="count">
-    Total Shows: {$count}
-  </div> <!--#count-->
   <div id="pagination">
     {$pages}
+    <div id="count">
+      Total Shows: {$count}
+    </div> <!--#count-->
   </div> <!--#pagination-->
 </div> <!--#content-->

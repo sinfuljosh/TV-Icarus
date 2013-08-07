@@ -28,54 +28,20 @@ img { border: 0; }
 
 #wrapper {
 	width: 995px;
-	margin: 15px auto 7px auto;
+	margin: 0 auto 7px auto;
 }
 
 #header {
 	overflow: hidden;
-	margin-bottom: 15px;
-	padding: 5px;
-	border: 2px solid #fff;
-
-	-moz-box-shadow: 5px;
-	-webkit-box-shadow: 5px;
-	-o-box-shadow: 5px;
-	border-radius: 5px;
-	
-	-moz-box-shadow: 0 0 3px #aaa;
-	-webkit-box-shadow: 0 0 3px #aaa;
-	-o-box-shadow: 0 0 3px #aaa;
-	box-shadow: 0 0 3px #aaa;
-
-	/* Firefox 3.6+ */
-	background: -moz-linear-gradient(center top,
-		#eee 30%, #bbb 70%) repeat;
-
-	/* Safari 4+, Chrome 2+ */
-	background: -webkit-gradient(linear, 
-		left top, left bottom, from(#eee), to(#bbb));
-
-	/* Opera 11.10 */
-	background: -o-linear-gradient(#eee, #bbb);
-
-	/* Standard */
-	background: linear-gradient(#eee, #bbb);
-
-	/* Internet Explorer 10 */
-	background: -ms-linear-gradient(#eee, #bbb);
-
-	/* Internet Explorer 8+ */
-	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(
-		startColorstr='#eee', endColorstr='#bbb')";
-
-	/* Internet Explorer 6 & 7 */
-	filter: progid:DXImageTransform.Microsoft.gradient(
-		startColorstr='#eee', endColorstr='#bbb');
+	padding: 10px 0 5px;
 }
 
 #menu {
+	width: 750px;
+	float: right;
+
 	overflow: hidden;
-	margin-bottom: 15px;
+	margin-bottom: 5px;
 	color: #777;
 
 	background: url('images/nav.png');
@@ -110,12 +76,37 @@ img { border: 0; }
 	box-shadow: 0 0 3px #ccc;
 }
 
-#categories {
-	margin: 5px 0 15px 2px;
-}
-
 #pagination {
-	margin: 15px 0 5px 0;
+	overflow: hidden;
+	margin: 10px -6px -14px -6px;
+	padding: 7px 5px;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #eee;
+
+	/* Firefox 3.6+ */
+	background: -moz-linear-gradient(center top,
+		#eee 30%, #ddd 70%) repeat;
+
+	/* Safari 4+, Chrome 2+ */
+	background: -webkit-gradient(linear, 
+		left top, left bottom, from(#eee), to(#ddd));
+
+	/* Opera 11.10 */
+	background: -o-linear-gradient(#eee, #ddd);
+
+	/* Standard */
+	background: linear-gradient(#eee, #ddd);
+
+	/* Internet Explorer 10 */
+	background: -ms-linear-gradient(#eee, #ddd);
+
+	/* Internet Explorer 8+ */
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(
+		startColorstr='#eee', endColorstr='#ddd')";
+
+	/* Internet Explorer 6 & 7 */
+	filter: progid:DXImageTransform.Microsoft.gradient(
+		startColorstr='#eee', endColorstr='#ddd');
 }
 
 #accordion {
@@ -161,34 +152,39 @@ img { border: 0; }
 /* Header
 ---------------------------------------------- */
 
-#header h1 {
-	padding-top: 20px;
-	color: #fff; text-shadow: 1px 1px 2px #555;
+/*#header h1 {
+	float: left; padding-top: 20px;
+	color: #fff; text-shadow: 0 0 3px #222;
 	font: bold 225% Impact, Charcoal, sans-serif;
-} /* header title */
+}*/ /* header title */
 
-#header h2 {
+/*#header h2 {
 	padding-top: 5px;
 	color: #777; text-shadow: 1px 1px 3px #fff;
-	font: italic 115% Charcoal, sans-serif;
-	text-indent: 4px;
-} /* header tagline */
+	font: italic 95% Charcoal, sans-serif;
+	text-indent: 4px; font-weight: bold;
+}*/ /* header tagline */
 
 a#logo {
-	float: left; width: 100px; height: 91px; margin: 7px 5px 5px 5px;
-	background: url('images/tvtube.png') top left no-repeat;
+	float: left; width: 215px; height: 65px; margin: 5px 10px;
+	background: url('images/tvicarus.png') top left no-repeat;
 } /* header image */
 
-#gatop {
-	float: right;
-	margin: 20px 20px 0 5px;
-} /* Ad Placement (header) */
+/*
+#gastop1, #gastop2 {
+	margin-bottom: 8px;
+	padding: 5px 7px;
+	background-color: #ddd;
+	border: 1px solid #ccc;
+}
 
-#garight {
-	float: right;
-	margin-right: 7px;
-} /* Ad Placement (page) */
+#gastop1 { float: left; }
+#gastop2 { float: right; }
 
+#shows { width: 800px; }
+*/
+
+#gasright { float: right; margin-top: 50px; }
 
 /* Menu
 ---------------------------------------------- */
@@ -209,9 +205,11 @@ a#logo {
 }
 
 #menu ul li {
-	padding: 7px 20px;
+	padding: 7px 12px;
 	border-right: 1px solid #ccc;
 }
+
+/*#menu li:last-child { border-right:0px; }*/
 
 #menu a {
 	padding: 7px 20px 7px;
@@ -224,19 +222,17 @@ a#logo {
 	background-color: #ddd;
 }
 
-#menu span {
-	float: right;
-	margin: 7px 10px;
-	padding-right: 10px;
-	border-right: 1px solid #ccc;
+#menu span.date {
+	float: left;
+	margin: 12px 20px 0;
 	text-shadow: 1px 1px 1px #fff;
-	font-size: 95%;
+	font: italic 13px sans-serif;
 }
 
-#menu form { margin-right: 7px; }
+#menu form { margin-right: 15px; }
 
 #menu input[type='text'] {
-	width: 200px;
+	width: 250px;
 	margin: 5px 2px 6px;
 	padding: 2px;
 	border: 1px solid #bbb;
@@ -256,8 +252,9 @@ a#logo {
 /* Page
 ---------------------------------------------- */
 
-#page h3 {
-	margin: -6px -6px 15px -6px;
+#head {
+	overflow: hidden;
+	margin: -6px -6px 8px -6px;
 	padding: 5px 0 5px 7px;
 	color: #888;
 	text-shadow: 1px 1px 1px #fff;
@@ -290,13 +287,29 @@ a#logo {
 		startColorstr='#eee', endColorstr='#ddd');
 }
 
+#head h1, #head h1 a {
+	color: #aaa;
+	font: bold 100% sans-serif;
+}
+
+#head h1.right { padding-right: 10px; }
+
+#categories { float: left; padding: 2px; }
+
 #page article {
-	height: 60px;
-	margin: 0 0 10px 15px;
-	padding-top: 7px;
-	padding-left: 80px;
+	overflow: hidden;
+	margin: 0 0 5px 0;
+	padding: 0 80px 5px 0;
 	color: #333;
-	background: url('images/news.png') top left no-repeat;
+}
+
+#page article:last-child { border-bottom: none; }
+
+#page img.pic {
+	float: left;
+	width: 100px;
+	margin: 5px 15px 5px 5px;
+	border: 2px solid #ccc;
 }
 
 #page article p { font-style: italic; }
@@ -320,51 +333,22 @@ a#logo {
 	border-bottom: 1px dotted #333;
 }
 
-
-/* Categories
----------------------------------------------- */
-
-#categories a { /*same as pagination*/ }
-
-#categories a:hover { /*same as pagination*/ }
-
-
 /* Pagination
 ---------------------------------------------- */
 
-#pagination a,
 #categories a,
-#current,
-#count {
-	padding: 4px 6px 4px 6px;
-	border: 1px solid #ccc;
+#pagination a,
+#current {
+	padding: 2px 3px 2px 3px;
+	border: 1px solid transparent;
 	color: #777;
-	text-shadow: 1px 1px 1px #fff;
+}
 
-	/* Firefox 3.6+ */
-	background: -moz-linear-gradient(center top,
-		#eee 30%, #ddd 70%) repeat;
-
-	/* Safari 4+, Chrome 2+ */
-	background: -webkit-gradient(linear, 
-		left top, left bottom, from(#eee), to(#ddd));
-
-	/* Opera 11.10 */
-	background: -o-linear-gradient(#eee, #ddd);
-
-	/* Standard */
-	background: linear-gradient(#eee, #ddd);
-
-	/* Internet Explorer 10 */
-	background: -ms-linear-gradient(#eee, #ddd);
-
-	/* Internet Explorer 8+ */
-	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(
-		startColorstr='#eee', endColorstr='#ddd')";
-
-	/* Internet Explorer 6 & 7 */
-	filter: progid:DXImageTransform.Microsoft.gradient(
-		startColorstr='#eee', endColorstr='#ddd');
+#count {
+	margin-top: -2px;
+	padding: 0 3px 2px 3px;
+	border: 1px solid transparent;
+	color: #777;
 }
 
 #pagination a:hover,
@@ -399,12 +383,10 @@ a#logo {
 
 #current {
 	margin-left: 4px;
+	background-color: #fff;
 }
 
-#count {
-	float: right;
-	margin: 10px 5px;
-}
+#count { float: right; }
 
 
 /* Table
@@ -420,6 +402,7 @@ a#logo {
 	border: 1px solid #ddd;
 	border-right: 2px solid #ddd;
 	color: #333;
+	background-color: #eee;
 }
 
 #page td img:hover { border:0; }
@@ -430,10 +413,21 @@ a#logo {
 	text-shadow: 1px 1px 1px #fff;
 }
 
-#page th.cover {
-	width: 30%; padding-right: 7px;
-	border-right: 1px solid #ccc;
+#page .head {
+	border-bottom: 1px solid #ccc;
+}
 
+#page .cover {
+	width: 300px;
+	border-right: 1px solid #ccc;
+}
+
+#page .side {
+	width: 300px;
+	border-left: 1px solid #ccc;
+}
+
+#page .cover, .side, .head {
 	/* Firefox 3.6+ */
 	background: -moz-linear-gradient(center top,
 		#eee 30%, #ddd 70%) repeat;
@@ -460,8 +454,10 @@ a#logo {
 		startColorstr='#eee', endColorstr='#ddd');
 }
 
+#content { min-height: 400px; }
+
 #page img#cover {
-	max-width: 320px;
+	max-width: 300px;
 	margin: 15px;
 	border: 2px solid #fff;
 
@@ -569,6 +565,14 @@ a#logo {
 	position: absolute; left: .5em; top: 50%; margin-top: -8px;
 }
 
+/*table#shows {
+	width: 810px;
+}
+
+table#shows2 {
+	width: 100%;
+}*/
+
 table.shows {
 	-moz-border-radius: 7px;
 	-webkit-border-radius: 7px;
@@ -578,6 +582,13 @@ table.shows {
 
 table.shows th {
 	background-color: #e5e5e5;
+}
+
+/* Comments
+---------------------------------------------- */
+
+#comments {
+	padding: 5px;
 }
 
 
@@ -594,5 +605,29 @@ table.shows th {
 	color: #000;
 }
 
+/* Error 4040
+---------------------------------------------- */
+
+#error {
+	float: left;
+	margin: 100px 40px 0 150px;
+}
+
+.e404 {
+	color: #ccc;
+	font: bold 6em Arial, sans-serif;
+}
+
+.t404 {
+	margin: -10px 0; color: #ccc;
+	font: bold 2.8em Arial, sans-serif;
+}
+
+#info {
+	float: left;
+	margin: 115px 0;
+	color: #aaa;
+	font: 1.6em Arial, sans-serif;
+}
 
 /** EOF: style.css **/

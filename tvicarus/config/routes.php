@@ -39,13 +39,13 @@
 */
 
 $route['default_controller'] = 'site';
-$route['404_override'] = '';
+$route['404_override'] = 'site/e404';
 
 $route['(:any)'] = 'site/$1';
 $route['guide/(:num)'] = 'guide/$1';
 $route['shows/(:any)'] = 'shows/$1';
 $route['shows/(:any)/(:num)'] = 'shows/$1/cat/$2';
-$route['episode/(:num)'] = 'episode/$1';
+$route['title/(:num)/(:any)'] = 'title/$1';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
