@@ -1,6 +1,8 @@
 <div id="content">
-  <h3> TV Guide </h3>
-  <table>
+  <div id="head">
+    <h1> TV GUIDE </h1>
+  </div> <!--#head-->
+  <table class="shows2">
     <tr>
       <th> Show </th>
       <th> Info </th>
@@ -11,7 +13,7 @@
     </tr>
   {foreach from=$episodes item=show}
     <tr>
-      <td class="show"> <a href="{$base}episode/{$show->showid}">{$show->showname}</a> </td>
+      <td class="show"> <a href="{$base}title/{$show->showid}">{$show->showname}</a> </td>
       <td class="center"> <a href="{$show->showlink}"><img src="{$base}static/images/tvrage.png" alt="TVRage.com"></a> </td>
     {foreach from=$show->upcomingep item=episode}
       <td class="name"> {$episode->title} </td>
@@ -22,10 +24,10 @@
     {/foreach}
   {/foreach}
   </table>
-  <div id="count">
-    Total Shows: {$count}
-  </div> <!--#count-->
   <div id="pagination">
     {$pages}
+    <div id="count">
+      Total Shows: {$count}
+    </div> <!--#count-->
   </div> <!--#pagination-->
 </div> <!--#content-->

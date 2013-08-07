@@ -85,13 +85,17 @@ class Site extends CI_Controller {
 	} #shows
 
 
-	public function episode() {
-		$show = $this->tvic->episode();
+	public function title() {
+		$show = $this->tvic->title();
+
+		if (empty($show->name)) { redirect('404'); }
+
 		$genres = implode(', ', $show->xpath('//genre'));
 		$started = (empty($show->started)) ? 'n/a' :
 			date('Y-m-d', strtotime(implode('-', explode('/', $show->started)))); // date bug fix
 		$ended = (empty($show->ended)) ? 'n/a' : 
 			date('Y-m-d', strtotime(implode('-', explode('/', $show->ended)))); // date bug fix
+
 		$data = array(
 			// Auto-Generated Info
 			'pagetitle' => $show->name,
@@ -116,8 +120,10 @@ class Site extends CI_Controller {
 			// Seasons List
 			'selist' => $show->xpath('////Season'),
 		); #data
-		$this->tvic->page('episode', $data);
-	} #episode
+
+		$this->tvic->page('title', $data);
+
+	} #title
 
 
 	public function search() {
@@ -131,6 +137,11 @@ class Site extends CI_Controller {
 		$data['keywords'] = $this->config->item('search_keywords');
 		$this->tvic->page('search', $data);
 	} #search
+
+
+	public function e404() {
+		$this->tvic->page('404');
+	} #error-404-page
 
 } #class
 

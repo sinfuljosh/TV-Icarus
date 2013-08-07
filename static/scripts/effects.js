@@ -1,6 +1,8 @@
 function accordion() {
   $(document).ready(function() {
     $("#accordion").accordion({ collapsible: true, active: false });
+    //$("#accordion").accordion( "activate", 0);
+
     $(".selector").accordion({ collapsible: true });
     $(".selector").accordion({ animated: 'bounceslide' });
     $(".selector").accordion({ fillSpace: true });
